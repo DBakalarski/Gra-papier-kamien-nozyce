@@ -26,9 +26,22 @@ var roundsAmount = 10;
 /************** NASŁCUHWIACZE **************/
 
 newGameElem.addEventListener('click', newGame);
-rock.addEventListener('click', function() { playerChoice("rock"); });
-scissors.addEventListener('click', function() { playerChoice("scissors");});
-paper.addEventListener('click', function() { playerChoice("paper");});
+//rock.addEventListener('click', function() { playerChoice("rock"); });
+//scissors.addEventListener('click', function() { playerChoice("scissors");});
+//paper.addEventListener('click', function() { playerChoice("paper");});
+
+/*************** PĘTLA NASŁUCHIWACZE **************/
+var playerMove = document.getElementsByClassName('player-move');
+
+for (var i=0; i < playerMove.length; i++) {
+  
+playerMove[i].addEventListener('click', function() { playerChoice(playerMove[this].getAttribute('data-move'));}.bind(i));
+
+}
+
+
+
+
 
 /************* USTAWIENIE PLANSZY ****************/
 
