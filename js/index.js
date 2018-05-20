@@ -17,11 +17,14 @@ var buttonsPanel = document.getElementById('buttonsPanel');
 
 /************ STARTOWE ZMIENNE ****************/
 
-//var choice;
+ var params = {
+  roundsAmount: '',
+}
+
 var player = { name: '', score: 0, choice: ''};
 var computer = { score: 0, choice: '' };
 var gameState = 'notStarted';
-var roundsAmount = 10;
+//var roundsAmount = 10;
 
 /************** NASŁCUHWIACZE **************/
 
@@ -80,9 +83,9 @@ setGame();
 
 function newGame() {
   player.name = window.prompt('Enter your name');
-  roundsAmount = window.prompt('Enter rounds amount');
+  params.roundsAmount = window.prompt('Enter rounds amount');
   
-  if((player.name.length > 0) && !(isNaN(roundsAmount))) {
+  if((player.name.length > 0) && !(isNaN(params.roundsAmount))) {
    
     player.score = 0;
     computer.score = 0;
@@ -98,7 +101,7 @@ function newGame() {
   else if(player.name.length == 0){
   alert('Wpisz poprawnę imię!');
   }
-  else if((isNaN(roundsAmount))){
+  else if((isNaN(params.roundsAmount))){
     alert('Wpisz właściwą liczbę rund!');
   }
 }
@@ -171,11 +174,35 @@ function whoWin(){
 
 function isWinner() {
   
-  if(player.score == roundsAmount || computer.score == roundsAmount) {
+  if(player.score == params.roundsAmount || computer.score == params.roundsAmount) {
      gameState = 'ended';
      setGame();
      
-     var winner = (player.score > computer.score) ? player.name : 'Computer';
-     setTimeout(function() { alert('Zwyciężył '+winner) }, 100);
+    var winner = (player.score > computer.score) ? player.name : 'Computer';
+    document.getElementById('winner-modal').innerHTML = winner + "!";
+    setTimeout(showModal(event));
+     //setTimeout(function() { alert('Zwyciężył '+ winner) }, 100);
   }
 }
+
+
+/************** WYSKAKUJĄCY MODAL **************/
+
+  
+  var showModal = function(event){
+    event.preventDefault();
+    //document.getElementById('winner-modal').innerHTML = winner;
+    document.querySelector('#modal-overlay').classList.add('show');
+  };
+
+ var hideModal = function(event){
+    event.preventDefault();
+    document.querySelector('#modal-overlay').classList.remove('show');
+  };
+
+  var closeButtons = document.querySelectorAll('.modal .close');
+  
+  for(var i = 0; i < closeButtons.length; i++){
+    closeButtons[i].addEventListener('click', hideModal);
+  }
+  

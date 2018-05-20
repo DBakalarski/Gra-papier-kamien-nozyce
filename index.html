@@ -3,18 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>A Pen by  Dawid</title>
-  
-  
-  
+  <title>ROCK / PAPER / SCISSORS</title>
       <link rel="stylesheet" href="css/style.css">
 
-  
-</head>
-
-<body>
-
-  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
 </head>
@@ -45,16 +36,19 @@
     <div id="outputComputerWin" class="center"></div>
   </div>
 </div>
+<!-- MODAL -->
 <div id="output-win"></div>
- </body>
-  
-  
-
+ <div class="overlay" id="modal-overlay">
+  <div class="modal">
+    <a href="#" class="close">x</a>
+    <header class="header-modal">Zwyciężył</header>
+    <div class="content">
+      <p id="winner-modal" class="paragraph-modal"></p>
+    </div>
+  </div>
+</div>
+<!-- SCRIPT -->
     <script  src="js/index.js"></script>
-
-
-
-
 </body>
 
 </html>

@@ -6,8 +6,10 @@ body {
 .container {
   width: 1200px;
   margin: 50px auto;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 .bold {
@@ -30,8 +32,10 @@ body {
 }
 
 .row {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   width: 200px;
   margin: auto;
 }
@@ -110,5 +114,4 @@ body {
   min-height: 30px;
   padding: 5px 30px;
 }
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.prefixed.css.map */

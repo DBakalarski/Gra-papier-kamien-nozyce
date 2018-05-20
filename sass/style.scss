@@ -8,32 +8,36 @@ body {
   display: flex;
   justify-content: center;
 }
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+  height: 22px;
+}
+
+/* PRZYCISKI */
 .btn {
   margin: 0 15px;
 }
 .btn button {
   width: 50px;
   height: 50px;
-  
 }
+
 .row {
   display: flex;
   flex-direction: column;
-  //width: 120px;
+  width: 200px;
   margin: auto;
 }
-.center {
-  text-align: center;
-  height: 22px;
-}
+
 .game-button {
   border: none;
   border-radius: 50%;
   font-size: 30px;
 }
-.bold {
-  font-weight: bold;
-}
+
 .output2, .output {
   color: #e55039;
 }
@@ -44,4 +48,57 @@ body {
   border-radius: 20%;
   font-size: 20px;
   font-weight: bold;
+}
+
+/************* MODAL ***********/
+.header-modal{
+  text-align: center;
+}
+.paragraph-modal{
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  
+  &.show {
+    display: block;
+  }
+}
+.modal {
+  background: #fff;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  header {
+    font-size: 20px;
+    line-height: 30px;
+    min-height: 30px;
+    font-weight: bold;
+    padding: 0 30px;
+  }
+
+  .content {
+    min-height: 30px;
+    padding: 5px 30px;
+  }
 }
