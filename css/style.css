@@ -61,7 +61,7 @@ body {
 }
 
 .paragraph-modal {
-  font-size: 38px;
+  font-size: 28px;
   text-align: center;
   font-weight: bold;
 }
@@ -82,7 +82,7 @@ body {
 
 .modal {
   background: #fff;
-  width: 200px;
+  width: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -103,12 +103,17 @@ body {
   line-height: 30px;
   min-height: 30px;
   font-weight: bold;
-  padding: 0 30px;
+  padding: 0 25px;
 }
 
 .modal .content {
   min-height: 30px;
-  padding: 5px 30px;
+  padding: 5px 0;
+}
+
+/****** TABELA W MODALU *******/
+.modal th, .modal tr {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

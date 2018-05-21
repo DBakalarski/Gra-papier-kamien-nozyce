@@ -16,22 +16,19 @@ var buttonsPanel = document.getElementById('buttonsPanel');
 
 
 /************ STARTOWE ZMIENNE ****************/
-
- var params = {
+var numberRound;
+var params = {
   roundsAmount: '',
+  progrress: []
 }
 
 var player = { name: '', score: 0, choice: ''};
 var computer = { score: 0, choice: '' };
 var gameState = 'notStarted';
-//var roundsAmount = 10;
 
 /************** NASŁCUHWIACZE **************/
 
 newGameElem.addEventListener('click', newGame);
-//rock.addEventListener('click', function() { playerChoice("rock"); });
-//scissors.addEventListener('click', function() { playerChoice("scissors");});
-//paper.addEventListener('click', function() { playerChoice("paper");});
 
 /*************** PĘTLA NASŁUCHIWACZE **************/
 var playerMove = document.getElementsByClassName('player-move');
@@ -89,14 +86,20 @@ function newGame() {
    
     player.score = 0;
     computer.score = 0;
+    numberRound = 0;
     outputPlayerWin.innerHTML = " ";
     outputComputerWin.innerHTML = " ";
+    output.innerHTML = " ";
+    output2.innerHTML = " ";
+
     setGamePoints();
     
     gameState = 'started';
     setGame();
-  
     outputPlayerName.innerHTML = player.name;
+    myDeleteFunction(); //wyzerowanie tablicy w modalu
+
+
   }
   else if(player.name.length == 0){
   alert('Wpisz poprawnę imię!');
@@ -138,7 +141,12 @@ function playerChoice(playerPick) {
   output.innerHTML = player.choice;
   output2.innerHTML = computer.choice;
 
+  numberRound++;
+
   whoWin();
+
+  myCreateFunction(); //tablica w modalu
+
   
   isWinner();
 }
@@ -191,7 +199,6 @@ function isWinner() {
   
   var showModal = function(event){
     event.preventDefault();
-    //document.getElementById('winner-modal').innerHTML = winner;
     document.querySelector('#modal-overlay').classList.add('show');
   };
 
@@ -206,3 +213,24 @@ function isWinner() {
     closeButtons[i].addEventListener('click', hideModal);
   }
   
+  /* FUNKCJA TABELI DO MODALA */
+  function myCreateFunction() {
+    var table = document.getElementById("myTable");
+    var rowTable = table.insertRow(0);
+    var cell1 = rowTable.insertCell(0);
+    var cell2 = rowTable.insertCell(1);
+    var cell3 = rowTable.insertCell(2);
+    var cell4 = rowTable.insertCell(3);
+    table.appendChild(rowTable);
+    cell1.innerHTML = numberRound;
+    cell2.innerHTML = player.choice;
+    cell3.innerHTML = computer.choice;
+    cell4.innerHTML = player.score + ' - ' + computer.score;
+}
+/*usuwanie tabeli */
+function myDeleteFunction() {
+    do {
+    document.getElementById("myTable").deleteRow(1);
+    }
+    while (rowTable = 1);
+}
