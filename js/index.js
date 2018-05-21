@@ -163,15 +163,27 @@ function whoWin(){
       outputPlayerWin.innerHTML = "Wygrana!";
       outputComputerWin.innerHTML = " ";
       player.score++;
+      output.className = 'center';
+      output2.className = 'center';
+      output.classList.add('color-win');
+      output2.classList.add('color-lose');
   }    
   else if(player.choice == computer.choice) {
     outputPlayerWin.innerHTML = "Remis!";
     outputComputerWin.innerHTML = "Remis!";
+    output.className = 'center';
+    output2.className = 'center';
+    output.classList.add('color-remis');
+    output2.classList.add('color-remis');
     //remis
   } else {
       outputComputerWin.innerHTML = "Wygrana!";
       outputPlayerWin.innerHTML = " ";
       computer.score++;
+      output.className = 'center';
+      output2.className = 'center';
+      output.classList.add('color-lose');
+      output2.classList.add('color-win');
   }
   
   setGamePoints();
