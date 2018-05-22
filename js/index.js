@@ -13,6 +13,7 @@ var computerPoints = document.getElementById('outputComputerCountWin');
 var playerPanel = document.getElementById('playerPanel');
 var computerPanel = document.getElementById('computerPanel');
 var buttonsPanel = document.getElementById('buttonsPanel');
+var tablePlayerChoice = document.getElementById('table-player-choice');
 
 
 /************ STARTOWE ZMIENNE ****************/
@@ -55,7 +56,7 @@ function setGame() {
       break;
     case 'ended':
         setTimeout(function(){
-        newGameElem.innerText = 'Jeszcze raz';
+        newGameElem.innerText = 'Once more';
         newGameElem.style.display = 'block';
         playerPanel.style.display = 'none';
         computerPanel.style.display = 'none';
@@ -91,7 +92,7 @@ function newGame() {
     outputComputerWin.innerHTML = " ";
     output.innerHTML = " ";
     output2.innerHTML = " ";
-
+    tablePlayerChoice.innerHTML = player.name + ' choice' ;
     setGamePoints();
     
     gameState = 'started';
@@ -102,10 +103,10 @@ function newGame() {
 
   }
   else if(player.name.length == 0){
-  alert('Wpisz poprawnę imię!');
+  alert('Enter the correct name!');
   }
   else if((isNaN(params.roundsAmount))){
-    alert('Wpisz właściwą liczbę rund!');
+    alert('Enter the correct number of rounds!');
   }
 }
 
@@ -160,7 +161,7 @@ function whoWin(){
     (player.choice == 'rock' && computer.choice == 'scissors') ||
     (player.choice == 'scissors' && computer.choice == 'paper')) {
     
-      outputPlayerWin.innerHTML = "Wygrana!";
+      outputPlayerWin.innerHTML = "Win!";
       outputComputerWin.innerHTML = " ";
       player.score++;
       output.className = 'center';
@@ -169,15 +170,15 @@ function whoWin(){
       output2.classList.add('color-lose');
   }    
   else if(player.choice == computer.choice) {
-    outputPlayerWin.innerHTML = "Remis!";
-    outputComputerWin.innerHTML = "Remis!";
+    outputPlayerWin.innerHTML = "Draw!";
+    outputComputerWin.innerHTML = "Draw!";
     output.className = 'center';
     output2.className = 'center';
-    output.classList.add('color-remis');
-    output2.classList.add('color-remis');
+    output.classList.add('color-draw');
+    output2.classList.add('color-draw');
     //remis
   } else {
-      outputComputerWin.innerHTML = "Wygrana!";
+      outputComputerWin.innerHTML = "Win!";
       outputPlayerWin.innerHTML = " ";
       computer.score++;
       output.className = 'center';
